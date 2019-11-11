@@ -52,12 +52,16 @@
 				}
 			});
 
-			function labColorChanged() {
-				var dom = document.getElementById('homepageId');
+			function labColorChangedByDomId(domid) {
+				var dom = document.getElementById(domid);
 				if(dom != undefined && dom.style != undefined) {
-					var colorAngle = Math.floor(Math.random() * 360);
-					var color = 'hsla(' + this.colorAngle + ',100%,50%,1)';
 					dom.style.color = getRandomColor();
+				}
+			}
+			function backcolorChangerByDomId(domid){
+				var dom = document.getElementById(domid);
+				if(dom != undefined && dom.style != undefined) {
+					dom.style.backgroundColor = getRandomColor();
 				}
 			}
 			//1、随机色的函数-rgb
@@ -69,10 +73,11 @@
 				return rgb;
 			}
 			$(function(){
-				setInterval("labColorChanged()",1000);
+				setInterval("labColorChangedByDomId('homepageId')",1000);
+				setInterval("backcolorChangerByDomId('bgDiv')",1000);
 			});
 		</script>
-		<div id="bgDiv">
+		<div id="bgDiv" style="width:1920px;height:1080px;background-color: red;">
 			<img class="imgBg" src="iJs_Li_img/soldier76.png" />
 		</div>
 		<button id="refreshBt" class="refreshBt" type="button" onclick="refreshWebpage()">刷新</button>
