@@ -24,21 +24,22 @@
 		</div>
 		<script>
 			//多线程
-//			Concurrent.Thread.create(function() {
-//				var i = 0;
-//				while(1) {
-//					
-//					console.log(i);
-//					i++;
-//				}
-//			});  
-			function largeTest(event){
-				for (var i=0;i<1000;i++) {
-					console.log(event+i);
+			//			Concurrent.Thread.create(function() {
+			//				var i = 0;
+			//				while(1) {
+			//					
+			//					console.log(i);
+			//					i++;
+			//				}
+			//			});  
+			function largeTest(event) {
+				for(var i = 0; i < 1000; i++) {
+					console.log(event + i);
 				}
 			}
-			
-     		Concurrent.Thread.create(largeTest, "name")
+
+			Concurrent.Thread.create(largeTest, "name")
+
 			function refreshWebpage() {
 				window.location.reload();
 			}
@@ -50,15 +51,35 @@
 					name: "士兵76",
 				}
 			});
+
+			function labColorChanged() {
+				var dom = document.getElementById('homepageId');
+				if(dom != undefined && dom.style != undefined) {
+					var colorAngle = Math.floor(Math.random() * 360);
+					var color = 'hsla(' + this.colorAngle + ',100%,50%,1)';
+					dom.style.color = getRandomColor();
+				}
+			}
+			//1、随机色的函数-rgb
+			function getRandomColor() {
+				var rgb = 'rgb(' + Math.floor(Math.random() * 255) + ',' +
+					Math.floor(Math.random() * 255) + ',' +
+					Math.floor(Math.random() * 255) + ')';
+				console.log(rgb);
+				return rgb;
+			}
+			$(function(){
+				setInterval("labColorChanged()",1000);
+			});
 		</script>
 		<div id="bgDiv">
 			<img class="imgBg" src="iJs_Li_img/soldier76.png" />
 		</div>
 		<button id="refreshBt" class="refreshBt" type="button" onclick="refreshWebpage()">刷新</button>
 		<style>
-			
+
 		</style>
-		<label class="homepageLab">咕咕的主页</label>
+		<label id="homepageId" class="homepageLab">咕咕的主页</label>
 	</body>
 
 </html>
