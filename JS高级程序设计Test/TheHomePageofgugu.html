@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
+		<script type="text/javascript" src="iJs_Li_Js/index.js"></script>
+		<link rel="stylesheet" href="iJs_Li_Css/index.css" type="text/css" />
+		<script src="iJs_Li_Js/vue/vue.js"></script>
+		<script type="text/javascript" src="iJs_Li_Js/Concurrent.Thread.js"></script>
 		<title></title>
+		<style>
+			.bg {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				padding: 0px;
+			}
+		</style>
 	</head>
+
 	<body>
+		<div id="app">
+			{{ message }}{{name}}
+		</div>
+		<script>
+			//多线程
+//			Concurrent.Thread.create(function() {
+//				var i = 0;
+//				while(1) {
+//					
+//					console.log(i);
+//					i++;
+//				}
+//			});  
+			function largeTest(event){
+				for (var i=0;i<1000;i++) {
+					console.log(event+i);
+				}
+			}
+			
+     		Concurrent.Thread.create(largeTest, "name")
+			function refreshWebpage() {
+				window.location.reload();
+			}
+
+			var app = new Vue({ //vue.js的应用对象
+				el: '#app', //element元素 选中div
+				data: { //用于保存数据
+					message: 'Hello GuGu!', //初始化给变量赋值
+					name: "士兵76",
+				}
+			});
+		</script>
+		<div id="bgDiv">
+			<img class="imgBg" src="iJs_Li_img/soldier76.png" />
+		</div>
+		<button id="refreshBt" class="refreshBt" type="button" onclick="refreshWebpage()">刷新</button>
+		<style>
+			
+		</style>
+		<label class="homepageLab">咕咕的主页</label>
 	</body>
+
 </html>
