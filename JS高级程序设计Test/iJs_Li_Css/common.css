@@ -1,30 +1,42 @@
-
 /**
  * button通用样式
  */
-.comBt{
-    max-width: 160px;
-    background-color: rgba(192, 192, 192);
-    border: 2px;
-    border-color: black;
-    border-radius: 8px;
-    padding: 4px;
+
+.comBt {
+	max-width: 160px;
+	background-color: rgba(192, 192, 192);
+	border: 2px;
+	border-color: black;
+	border-radius: 8px;
+	padding: 4px;
 }
+
+.homepageLab {
+	position: absolute;
+	left: 800px;
+	top: 80px;
+	font-family: 宋体;
+	font-size: 60px;
+	font-weight: bold;
+	color: deeppink;
+}
+
 .imgBg {
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	background-repeat:no-repeat;
-    background-size:cover;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-.refreshBt{
+
+.refreshBt {
 	top: 90px;
 	left: 80px;
 	position: absolute;
 	max-width: 160px;
-    background-color: rgba(192, 192, 192);
-    border: 2px;
-    border-color: black;
-    border-radius: 8px;
-    padding: 4px;
+	background-color: rgba(192, 192, 192);
+	border: 2px;
+	border-color: black;
+	border-radius: 8px;
+	padding: 4px;
 }
